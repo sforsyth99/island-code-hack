@@ -1,0 +1,35 @@
+.app {
+  text-align: center;
+}
+
+.header {
+  background-color: var(--color-primary);
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+  color: var(--color-white);
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.link {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: var(--text-lg);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
