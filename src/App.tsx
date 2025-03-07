@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import styles from "./App.module.css";
 import homeStyles from "./styles/Home.module.css";
 import aboutStyles from "./styles/About.module.css";
+import { Contact } from "./Contact";
 
 // Page components
 const Home = () => (
@@ -37,13 +38,6 @@ const About = () => (
         </tr>
       </tbody>
     </table>
-  </div>
-);
-
-const Contact = () => (
-  <div className={homeStyles.container}>
-    <h2 className={homeStyles.title}>Contact</h2>
-    <p className={homeStyles.text}>Get in touch with us!</p>
   </div>
 );
 
