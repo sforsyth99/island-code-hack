@@ -8,33 +8,37 @@ import { Contact } from "./Contact";
 // Page components
 const Home = () => {
   const [toggles, setToggles] = React.useState([
-    { id: 1, name: 'Sensor 1', enabled: false },
-    { id: 2, name: 'Sensor 2', enabled: false },
-    { id: 3, name: 'Sensor 3', enabled: false },
-    { id: 4, name: 'Sensor 4', enabled: false },
-    { id: 5, name: 'Shower Head', enabled: false, fixed: true },
+    { id: 1, name: "Kettle", enabled: true },
+    { id: 2, name: "TV", enabled: true },
+    { id: 3, name: "Living Room Lamp", enabled: true },
+    { id: 4, name: "Sensor 4", enabled: false },
+    { id: 5, name: "Shower Head", enabled: true },
   ]);
 
   const handleToggle = (id: number) => {
-    setToggles(toggles.map(toggle =>
-      toggle.id === id ? { ...toggle, enabled: !toggle.enabled } : toggle
-    ));
+    setToggles(
+      toggles.map((toggle) =>
+        toggle.id === id ? { ...toggle, enabled: !toggle.enabled } : toggle
+      )
+    );
   };
 
   const handleNameChange = (id: number, newName: string) => {
-    setToggles(toggles.map(toggle =>
-      toggle.id === id ? { ...toggle, name: newName } : toggle
-    ));
+    setToggles(
+      toggles.map((toggle) =>
+        toggle.id === id ? { ...toggle, name: newName } : toggle
+      )
+    );
   };
 
   return (
     <div className={homeStyles.container}>
       <h2 className={homeStyles.title}>System Configuration</h2>
       <div className={homeStyles.toggleGrid}>
-        {toggles.map(toggle => (
+        {toggles.map((toggle) => (
           <div key={toggle.id} className={homeStyles.toggleItem}>
             <div className={homeStyles.toggleContent}>
-              {!toggle.fixed ? (
+              {!false ? (
                 <input
                   type="text"
                   value={toggle.name}
