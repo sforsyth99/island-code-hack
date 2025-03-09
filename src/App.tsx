@@ -6,12 +6,60 @@ import aboutStyles from "./styles/About.module.css";
 import { Contact } from "./Contact";
 
 // Page components
-const Home = () => (
-  <div className={homeStyles.container}>
-    <h2 className={homeStyles.title}>Home</h2>
-    <p className={homeStyles.text}>Welcome to our website!</p>
-  </div>
-);
+const Home = () => {
+  const [toggles, setToggles] = React.useState([
+    { id: 1, name: 'Sensor 1', enabled: false },
+    { id: 2, name: 'Sensor 2', enabled: false },
+    { id: 3, name: 'Sensor 3', enabled: false },
+    { id: 4, name: 'Sensor 4', enabled: false },
+    { id: 5, name: 'Shower Head', enabled: false, fixed: true },
+  ]);
+
+  const handleToggle = (id: number) => {
+    setToggles(toggles.map(toggle =>
+      toggle.id === id ? { ...toggle, enabled: !toggle.enabled } : toggle
+    ));
+  };
+
+  const handleNameChange = (id: number, newName: string) => {
+    setToggles(toggles.map(toggle =>
+      toggle.id === id ? { ...toggle, name: newName } : toggle
+    ));
+  };
+
+  return (
+    <div className={homeStyles.container}>
+      <h2 className={homeStyles.title}>System Configuration</h2>
+      <div className={homeStyles.toggleGrid}>
+        {toggles.map(toggle => (
+          <div key={toggle.id} className={homeStyles.toggleItem}>
+            <div className={homeStyles.toggleContent}>
+              {!toggle.fixed ? (
+                <input
+                  type="text"
+                  value={toggle.name}
+                  onChange={(e) => handleNameChange(toggle.id, e.target.value)}
+                  className={homeStyles.nameInput}
+                  placeholder="Enter sensor name"
+                />
+              ) : (
+                <span className={homeStyles.fixedName}>{toggle.name}</span>
+              )}
+              <label className={homeStyles.toggleLabel}>
+                <input
+                  type="checkbox"
+                  checked={toggle.enabled}
+                  onChange={() => handleToggle(toggle.id)}
+                  className={homeStyles.toggleInput}
+                />
+              </label>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const About = () => (
   <div className={aboutStyles.container}>

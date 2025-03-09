@@ -2,15 +2,107 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .title {
   font-size: var(--text-3xl);
   font-weight: bold;
   color: var(--color-pink-500);
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-.text {
-  color: var(--color-gray-600);
-  font-size: var(--text-lg);
+.toggleGrid {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.toggleItem {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.toggleItem:hover {
+  transform: translateY(-2px);
+}
+
+.toggleContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.25rem;
+}
+
+.nameInput {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  outline: none;
+  margin-right: 1rem;
+}
+
+.nameInput:focus {
+  border-color: var(--color-pink-500);
+}
+
+.nameInput:hover {
+  border-color: #d1d5db;
+}
+
+.fixedName {
+  flex: 1;
+  min-width: 200px;
+  font-size: 1rem;
+  color: #374151;
+  margin-right: 1rem;
+  padding: 0.75rem;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggleInput {
+  appearance: none;
+  width: 3.5rem;
+  height: 2rem;
+  background: #e5e7eb;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.toggleInput:checked {
+  background: var(--color-pink-500);
+}
+
+.toggleInput::after {
+  content: '';
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: white;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  transition: transform 0.2s;
+}
+
+.toggleInput:checked::after {
+  transform: translateX(1.5rem);
 }
